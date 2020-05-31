@@ -1,6 +1,11 @@
 # Tìm hiểu Output của `ceph df`
 
 ## Xem xét ví dụ sau:
+
+Giả sử có 1 cụm Ceph với 2 pool `cephfs_data` và `cephfs_meta` như sau:
+
+Ban đầu pool `cephfs_data` chưa có dữ liệu
+
 ```sh
 $ ceph df
 
@@ -11,7 +16,7 @@ RAW STORAGE:
 
 POOLS:
     POOL            ID     STORED      OBJECTS     USED        %USED     MAX AVAIL
-    cephfs_meta      1         0 B           0         0 B         0        27 GiB
+    cephfs_data      1         0 B           0         0 B         0        27 GiB
     cephfs_meta      2     125 MiB          54     126 MiB      0.22        55 GiB
 ```
 
@@ -25,7 +30,7 @@ Trong section `POOL`:
 - cephfs_meta:
   - `bytes_used:131923968`
 
-- Ghi dữ liệu
+- Ghi dữ liệu vào pool `cephfs_data`
 ```
 seq 1 4000 |xargs -I {} -P 10 dd if=/dev/zero of={} bs=1K seek=4095 count=1
 ```
