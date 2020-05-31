@@ -86,3 +86,4 @@ Trong section `POOL`:
 - https://docs.ceph.com/docs/master/releases/nautilus/
 - https://forum.proxmox.com/threads/ceph-raw-usage-grows-by-itself.38395/
 - https://stackoverflow.com/questions/51022467/ceph-raw-storage-usage-versus-pool-storage-usage
+- https://www.spinics.net/lists/ceph-users/msg42794.html
