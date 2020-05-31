@@ -84,3 +84,4 @@ Trong section `POOL`:
 
 ## Tài liệu tham khảo
 - https://docs.ceph.com/docs/master/releases/nautilus/
+- https://forum.proxmox.com/threads/ceph-raw-usage-grows-by-itself.38395/
