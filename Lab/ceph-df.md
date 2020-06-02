@@ -93,7 +93,20 @@ Thông số này có thể được thay đổi bằng cách thêm dòng sau và
 # Mặc đinh là 65536
 bluestore_min_alloc_size_hdd = 4096
 ```
+Kết quả sau khi thay đổi như sau:
+```sh
+$ ceph df
 
+RAW STORAGE:
+    CLASS     SIZE       AVAIL      USED        RAW USED     %RAW USED
+    hdd       60 GiB     58 GiB     1.3 MiB      2.0 GiB          3.34
+    TOTAL     60 GiB     58 GiB     1.3 MiB      2.0 GiB          3.34
+
+POOLS:
+    POOL                ID     STORED      OBJECTS     USED        %USED     MAX AVAIL
+    cephfs_data          1     400 KiB         100     400 KiB         0        55 GiB
+    cephfs_metadata      2     632 KiB          22     660 KiB         0        55 GiB
+```
 
 ## Tài liệu tham khảo
 - https://docs.ceph.com/docs/master/releases/nautilus/
