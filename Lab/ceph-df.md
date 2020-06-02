@@ -73,17 +73,6 @@ Trong section `POOL`:
 
 => 1 object là 65536 Byte
 
-## Một số thông số của `ceph df`
-- `ceph df` trong section GLOBAL:
-  - `USED` show không gian (của toàn bộ OSD) được phân bổ cho data objects trên block(slow) device.
-  - `RAW USED` gồm 2 phần là dung lương của `USED` 1 phần khác.
-- `ceph df` trong section POOLS:
-  - `BYTES USED` đổi tên thành `STORED`. Thể hiện lượng dữ liệu được lưu trữ bởi người dùng
-  - `USED` biểu thị lượng không gian được phân bổ hoàn toàn cho dữ liệu bởi tất cả các Node OSD tính bằng KB.
-  - `QUOTA BYTES`, `QUOTA OBJECTS` không được hiển thị trong mode `non-detailed`.
-
-##
-
 Nếu sử dụng object có kích thước nhỏ thì dung lượng lưu trữ thực tế sử dụng sẽ lớn hơn
 
 Ceph chỉ có thể lưu trữ với giá trị `min block size`. Nếu 1 file được ghi nhỏ hơn size này nó sẽ sử dụng `block size`. Nên `STORED` sẽ show đúng dữ liệu lưu trữ nhưng `USED` sẽ show `full size allocate` của tất cả các `block`, dựa vào từng phiên bản mà mặc định `min block size` sẽ thay đổi. Với bản Nautilus thì `min block size = 64k`
@@ -107,6 +96,15 @@ POOLS:
     cephfs_data          1     400 KiB         100     400 KiB         0        55 GiB
     cephfs_metadata      2     632 KiB          22     660 KiB         0        55 GiB
 ```
+
+## Một số thông số của `ceph df`
+- `ceph df` trong section GLOBAL:
+  - `USED` show không gian (của toàn bộ OSD) được phân bổ cho data objects trên block(slow) device.
+  - `RAW USED` gồm 2 phần là dung lương của `USED` 1 phần khác.
+- `ceph df` trong section POOLS:
+  - `BYTES USED` đổi tên thành `STORED`. Thể hiện lượng dữ liệu được lưu trữ bởi người dùng
+  - `USED` biểu thị lượng không gian được phân bổ hoàn toàn cho dữ liệu bởi tất cả các Node OSD tính bằng KB.
+  - `QUOTA BYTES`, `QUOTA OBJECTS` không được hiển thị trong mode `non-detailed`.
 
 ## Tài liệu tham khảo
 - https://docs.ceph.com/docs/master/releases/nautilus/
