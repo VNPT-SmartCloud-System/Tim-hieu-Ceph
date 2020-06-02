@@ -88,6 +88,13 @@ Nếu sử dụng object có kích thước nhỏ thì dung lượng lưu trữ 
 
 Ceph chỉ có thể lưu trữ với giá trị `min block size`. Nếu 1 file được ghi nhỏ hơn size này nó sẽ sử dụng `block size`. Nên `STORED` sẽ show đúng dữ liệu lưu trữ nhưng `USED` sẽ show `full size allocate` của tất cả các `block`, dựa vào từng phiên bản mà mặc định `min block size` sẽ thay đổi. Với bản Nautilus thì `min block size = 64k`
 
+Thông số này có thể được thay đổi bằng cách thêm dòng sau vào file cấu hình `ceph.conf`
+```sh
+# Mặc đinh là 65536
+bluestore_min_alloc_size_hdd = 4096
+```
+
+
 ## Tài liệu tham khảo
 - https://docs.ceph.com/docs/master/releases/nautilus/
 - https://forum.proxmox.com/threads/ceph-raw-usage-grows-by-itself.38395/
